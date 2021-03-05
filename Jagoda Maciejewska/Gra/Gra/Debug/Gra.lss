@@ -1,0 +1,1060 @@
+
+Gra.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000586  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  00000586  000005fa  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000005fe  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000040  00000000  00000000  0000062e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000005ec  00000000  00000000  0000066e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000201  00000000  00000000  00000c5a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000256  00000000  00000000  00000e5b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000094  00000000  00000000  000010b4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000001f3  00000000  00000000  00001148  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000006e5  00000000  00000000  0000133b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000080  00000000  00000000  00001a20  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 37 00 	jmp	0x6e	; 0x6e <__ctors_end>
+   4:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+   8:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+   c:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  10:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  14:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  18:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  1c:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  20:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  24:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  28:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  2c:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  30:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  34:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  38:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  3c:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  40:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  44:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  48:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  4c:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  50:	0c 94 4c 00 	jmp	0x98	; 0x98 <__bad_interrupt>
+  54:	69 00       	.word	0x0069	; ????
+  56:	69 00       	.word	0x0069	; ????
+  58:	6c 00       	.word	0x006c	; ????
+  5a:	6f 00       	.word	0x006f	; ????
+  5c:	72 00       	.word	0x0072	; ????
+  5e:	75 00       	.word	0x0075	; ????
+  60:	78 00       	.word	0x0078	; ????
+  62:	7b 00       	.word	0x007b	; ????
+  64:	7e 00       	.word	0x007e	; ????
+  66:	81 00       	.word	0x0081	; ????
+  68:	84 00       	.word	0x0084	; ????
+  6a:	87 00       	.word	0x0087	; ????
+  6c:	8a 00       	.word	0x008a	; ????
+
+0000006e <__ctors_end>:
+  6e:	11 24       	eor	r1, r1
+  70:	1f be       	out	0x3f, r1	; 63
+  72:	cf e5       	ldi	r28, 0x5F	; 95
+  74:	d8 e0       	ldi	r29, 0x08	; 8
+  76:	de bf       	out	0x3e, r29	; 62
+  78:	cd bf       	out	0x3d, r28	; 61
+
+0000007a <__do_copy_data>:
+  7a:	10 e0       	ldi	r17, 0x00	; 0
+  7c:	a0 e6       	ldi	r26, 0x60	; 96
+  7e:	b0 e0       	ldi	r27, 0x00	; 0
+  80:	e6 e8       	ldi	r30, 0x86	; 134
+  82:	f5 e0       	ldi	r31, 0x05	; 5
+  84:	02 c0       	rjmp	.+4      	; 0x8a <__do_copy_data+0x10>
+  86:	05 90       	lpm	r0, Z+
+  88:	0d 92       	st	X+, r0
+  8a:	a4 36       	cpi	r26, 0x64	; 100
+  8c:	b1 07       	cpc	r27, r17
+  8e:	d9 f7       	brne	.-10     	; 0x86 <__do_copy_data+0xc>
+  90:	0e 94 44 01 	call	0x288	; 0x288 <main>
+  94:	0c 94 c1 02 	jmp	0x582	; 0x582 <_exit>
+
+00000098 <__bad_interrupt>:
+  98:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000009c <Init>:
+#include <util/delay.h>
+#include <stdlib.h>
+#include <stdbool.h>
+void Init(void)
+{
+	DDRA=0xFF;//Port A wyjœciowy
+  9c:	8f ef       	ldi	r24, 0xFF	; 255
+  9e:	8a bb       	out	0x1a, r24	; 26
+	PORTA=0xC0;//Pocz¹tkowo wszystkie diody wy³¹czone
+  a0:	90 ec       	ldi	r25, 0xC0	; 192
+  a2:	9b bb       	out	0x1b, r25	; 27
+	DDRB=0xF8;//Pierwsze 3 linie wejœcie reszta wyjœcie
+  a4:	98 ef       	ldi	r25, 0xF8	; 248
+  a6:	97 bb       	out	0x17, r25	; 23
+	PORTB=0xFF;// Linie PB0-PB7 podci¹gniête programowo do +5V
+  a8:	88 bb       	out	0x18, r24	; 24
+  aa:	08 95       	ret
+
+000000ac <Zapal>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ac:	9a e1       	ldi	r25, 0x1A	; 26
+  ae:	9a 95       	dec	r25
+  b0:	f1 f7       	brne	.-4      	; 0xae <Zapal+0x2>
+  b2:	00 c0       	rjmp	.+0      	; 0xb4 <Zapal+0x8>
+}
+void Zapal(int8_t Numer)
+{
+	_delay_us(10);
+	PORTA=0xC0;
+  b4:	90 ec       	ldi	r25, 0xC0	; 192
+  b6:	9b bb       	out	0x1b, r25	; 27
+	switch(Numer)
+  b8:	99 27       	eor	r25, r25
+  ba:	87 fd       	sbrc	r24, 7
+  bc:	90 95       	com	r25
+  be:	a9 2f       	mov	r26, r25
+  c0:	b9 2f       	mov	r27, r25
+  c2:	8d 30       	cpi	r24, 0x0D	; 13
+  c4:	91 05       	cpc	r25, r1
+  c6:	40 f5       	brcc	.+80     	; 0x118 <Zapal+0x6c>
+  c8:	fc 01       	movw	r30, r24
+  ca:	e6 5d       	subi	r30, 0xD6	; 214
+  cc:	ff 4f       	sbci	r31, 0xFF	; 255
+  ce:	0c 94 e6 01 	jmp	0x3cc	; 0x3cc <__tablejump2__>
+	{
+	case 0: case 1:
+	PORTA=0xC0;
+  d2:	80 ec       	ldi	r24, 0xC0	; 192
+  d4:	8b bb       	out	0x1b, r24	; 27
+	break;
+  d6:	08 95       	ret
+	case 2:
+	PORTA=0xE9;
+  d8:	89 ee       	ldi	r24, 0xE9	; 233
+  da:	8b bb       	out	0x1b, r24	; 27
+	break;
+  dc:	08 95       	ret
+	case 3:
+	PORTA=0xE3;
+  de:	83 ee       	ldi	r24, 0xE3	; 227
+  e0:	8b bb       	out	0x1b, r24	; 27
+	break; 
+  e2:	08 95       	ret
+	case 4:
+	PORTA=0xCB;
+  e4:	8b ec       	ldi	r24, 0xCB	; 203
+  e6:	8b bb       	out	0x1b, r24	; 27
+	break;
+  e8:	08 95       	ret
+	case 5:
+	PORTA=0xEC;
+  ea:	8c ee       	ldi	r24, 0xEC	; 236
+  ec:	8b bb       	out	0x1b, r24	; 27
+	break;
+  ee:	08 95       	ret
+	case 6:
+	PORTA=0xE6;
+  f0:	86 ee       	ldi	r24, 0xE6	; 230
+  f2:	8b bb       	out	0x1b, r24	; 27
+	break;
+  f4:	08 95       	ret
+	case 7:
+	PORTA=0xCE;
+  f6:	8e ec       	ldi	r24, 0xCE	; 206
+  f8:	8b bb       	out	0x1b, r24	; 27
+	break;
+  fa:	08 95       	ret
+	case 8:
+	PORTA=0xF8;
+  fc:	88 ef       	ldi	r24, 0xF8	; 248
+  fe:	8b bb       	out	0x1b, r24	; 27
+	break;
+ 100:	08 95       	ret
+	case 9:
+	PORTA=0xF2;
+ 102:	82 ef       	ldi	r24, 0xF2	; 242
+ 104:	8b bb       	out	0x1b, r24	; 27
+	break;
+ 106:	08 95       	ret
+	case 10:
+	PORTA=0xDA;
+ 108:	8a ed       	ldi	r24, 0xDA	; 218
+ 10a:	8b bb       	out	0x1b, r24	; 27
+	break;
+ 10c:	08 95       	ret
+	case 11:
+	PORTA=0x40;
+ 10e:	80 e4       	ldi	r24, 0x40	; 64
+ 110:	8b bb       	out	0x1b, r24	; 27
+	break;
+ 112:	08 95       	ret
+	case 12:
+	PORTA=0x80;
+ 114:	80 e8       	ldi	r24, 0x80	; 128
+ 116:	8b bb       	out	0x1b, r24	; 27
+ 118:	08 95       	ret
+
+0000011a <SprawdzKlawisz>:
+	bool przycisnieto=false;
+	while(przycisnieto==false)//pêtla czekaj¹ca na wciœniêcie przycisku
+	{
+	PORTB &=~(1<<PB3);//Zerujemy PB3 mo¿liwoœæ odczytania stanu górnego wiersza klawiaury
+	_delay_us(1);//Czekamy na ustalenie stanu nieustalonego
+	for(int i=0; i<3; i++)//odczytaj stany wszystkich trzech przycisków
+ 11a:	50 e0       	ldi	r21, 0x00	; 0
+ 11c:	40 e0       	ldi	r20, 0x00	; 0
+	}
+}
+int8_t SprawdzKlawisz(void)
+{
+	bool przycisnieto=false;
+	while(przycisnieto==false)//pêtla czekaj¹ca na wciœniêcie przycisku
+ 11e:	7a c0       	rjmp	.+244    	; 0x214 <SprawdzKlawisz+0xfa>
+	{
+	PORTB &=~(1<<PB3);//Zerujemy PB3 mo¿liwoœæ odczytania stanu górnego wiersza klawiaury
+	_delay_us(1);//Czekamy na ustalenie stanu nieustalonego
+	for(int i=0; i<3; i++)//odczytaj stany wszystkich trzech przycisków
+	{
+	if(bit_is_clear(PINB,i))//sprawdzamy czy dany przycisk zwar³ wysoki stan na wejœciu do niskiego na wyjœciu (bo zerowaliœmy PB3 a 
+ 120:	26 b3       	in	r18, 0x16	; 22
+ 122:	30 e0       	ldi	r19, 0x00	; 0
+ 124:	08 2e       	mov	r0, r24
+ 126:	02 c0       	rjmp	.+4      	; 0x12c <SprawdzKlawisz+0x12>
+ 128:	35 95       	asr	r19
+ 12a:	27 95       	ror	r18
+ 12c:	0a 94       	dec	r0
+ 12e:	e2 f7       	brpl	.-8      	; 0x128 <SprawdzKlawisz+0xe>
+ 130:	20 fd       	sbrc	r18, 0
+ 132:	15 c0       	rjmp	.+42     	; 0x15e <SprawdzKlawisz+0x44>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 134:	2f ef       	ldi	r18, 0xFF	; 255
+ 136:	36 e7       	ldi	r19, 0x76	; 118
+ 138:	61 e0       	ldi	r22, 0x01	; 1
+ 13a:	21 50       	subi	r18, 0x01	; 1
+ 13c:	30 40       	sbci	r19, 0x00	; 0
+ 13e:	60 40       	sbci	r22, 0x00	; 0
+ 140:	e1 f7       	brne	.-8      	; 0x13a <SprawdzKlawisz+0x20>
+ 142:	00 c0       	rjmp	.+0      	; 0x144 <SprawdzKlawisz+0x2a>
+ 144:	00 00       	nop
+	{//PB0-2 pozostaj¹ w stanie wysokim.)
+		_delay_ms(60);//Poczekaj 60 ms na ustalenie siê stanu nieustalonego
+		if(bit_is_clear(PINB,i))// czy na pewno przycisk zosta³ wciœniêty? Czy tylko drgania styków.
+ 146:	26 b3       	in	r18, 0x16	; 22
+ 148:	30 e0       	ldi	r19, 0x00	; 0
+ 14a:	08 2e       	mov	r0, r24
+ 14c:	02 c0       	rjmp	.+4      	; 0x152 <SprawdzKlawisz+0x38>
+ 14e:	35 95       	asr	r19
+ 150:	27 95       	ror	r18
+ 152:	0a 94       	dec	r0
+ 154:	e2 f7       	brpl	.-8      	; 0x14e <SprawdzKlawisz+0x34>
+ 156:	20 fd       	sbrc	r18, 0
+ 158:	02 c0       	rjmp	.+4      	; 0x15e <SprawdzKlawisz+0x44>
+		{
+			przycisnieto=true;//jeœli tak to wyjdŸ z pêtli nad¿êdnej i zwróæ numer wciœniêtego klawisza
+			return 2+i;
+ 15a:	8e 5f       	subi	r24, 0xFE	; 254
+ 15c:	08 95       	ret
+	bool przycisnieto=false;
+	while(przycisnieto==false)//pêtla czekaj¹ca na wciœniêcie przycisku
+	{
+	PORTB &=~(1<<PB3);//Zerujemy PB3 mo¿liwoœæ odczytania stanu górnego wiersza klawiaury
+	_delay_us(1);//Czekamy na ustalenie stanu nieustalonego
+	for(int i=0; i<3; i++)//odczytaj stany wszystkich trzech przycisków
+ 15e:	01 96       	adiw	r24, 0x01	; 1
+ 160:	83 30       	cpi	r24, 0x03	; 3
+ 162:	91 05       	cpc	r25, r1
+ 164:	e9 f6       	brne	.-70     	; 0x120 <SprawdzKlawisz+0x6>
+			przycisnieto=true;//jeœli tak to wyjdŸ z pêtli nad¿êdnej i zwróæ numer wciœniêtego klawisza
+			return 2+i;
+		}
+	}
+	}
+	PORTB |=(1<<PB3);//wczeœniej wyzerowan¹ liniê ustaw
+ 166:	c3 9a       	sbi	0x18, 3	; 24
+	PORTB &=~(1<<PB4);//wyzeruj liniê PB4 w celu odczytania œrodkowego rzêdu klawiatury... dalej analogicznie.
+ 168:	c4 98       	cbi	0x18, 4	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 16a:	82 e0       	ldi	r24, 0x02	; 2
+ 16c:	8a 95       	dec	r24
+ 16e:	f1 f7       	brne	.-4      	; 0x16c <SprawdzKlawisz+0x52>
+ 170:	00 c0       	rjmp	.+0      	; 0x172 <SprawdzKlawisz+0x58>
+	_delay_us(1);
+	for(int i=0; i<3; i++)
+ 172:	85 2f       	mov	r24, r21
+ 174:	94 2f       	mov	r25, r20
+	{
+		if(bit_is_clear(PINB,i))
+ 176:	26 b3       	in	r18, 0x16	; 22
+ 178:	30 e0       	ldi	r19, 0x00	; 0
+ 17a:	08 2e       	mov	r0, r24
+ 17c:	02 c0       	rjmp	.+4      	; 0x182 <SprawdzKlawisz+0x68>
+ 17e:	35 95       	asr	r19
+ 180:	27 95       	ror	r18
+ 182:	0a 94       	dec	r0
+ 184:	e2 f7       	brpl	.-8      	; 0x17e <SprawdzKlawisz+0x64>
+ 186:	20 fd       	sbrc	r18, 0
+ 188:	15 c0       	rjmp	.+42     	; 0x1b4 <SprawdzKlawisz+0x9a>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 18a:	2f ef       	ldi	r18, 0xFF	; 255
+ 18c:	36 e7       	ldi	r19, 0x76	; 118
+ 18e:	61 e0       	ldi	r22, 0x01	; 1
+ 190:	21 50       	subi	r18, 0x01	; 1
+ 192:	30 40       	sbci	r19, 0x00	; 0
+ 194:	60 40       	sbci	r22, 0x00	; 0
+ 196:	e1 f7       	brne	.-8      	; 0x190 <SprawdzKlawisz+0x76>
+ 198:	00 c0       	rjmp	.+0      	; 0x19a <SprawdzKlawisz+0x80>
+ 19a:	00 00       	nop
+		{
+			_delay_ms(60);
+			if(bit_is_clear(PINB,i))
+ 19c:	26 b3       	in	r18, 0x16	; 22
+ 19e:	30 e0       	ldi	r19, 0x00	; 0
+ 1a0:	08 2e       	mov	r0, r24
+ 1a2:	02 c0       	rjmp	.+4      	; 0x1a8 <SprawdzKlawisz+0x8e>
+ 1a4:	35 95       	asr	r19
+ 1a6:	27 95       	ror	r18
+ 1a8:	0a 94       	dec	r0
+ 1aa:	e2 f7       	brpl	.-8      	; 0x1a4 <SprawdzKlawisz+0x8a>
+ 1ac:	20 fd       	sbrc	r18, 0
+ 1ae:	02 c0       	rjmp	.+4      	; 0x1b4 <SprawdzKlawisz+0x9a>
+			{
+				przycisnieto=true;
+				return 5+i;
+ 1b0:	8b 5f       	subi	r24, 0xFB	; 251
+ 1b2:	08 95       	ret
+	}
+	}
+	PORTB |=(1<<PB3);//wczeœniej wyzerowan¹ liniê ustaw
+	PORTB &=~(1<<PB4);//wyzeruj liniê PB4 w celu odczytania œrodkowego rzêdu klawiatury... dalej analogicznie.
+	_delay_us(1);
+	for(int i=0; i<3; i++)
+ 1b4:	01 96       	adiw	r24, 0x01	; 1
+ 1b6:	83 30       	cpi	r24, 0x03	; 3
+ 1b8:	91 05       	cpc	r25, r1
+ 1ba:	e9 f6       	brne	.-70     	; 0x176 <SprawdzKlawisz+0x5c>
+				przycisnieto=true;
+				return 5+i;
+			}
+		}
+	}
+	PORTB |=(1<<PB4);
+ 1bc:	c4 9a       	sbi	0x18, 4	; 24
+	PORTB &=~(1<<PB5);
+ 1be:	c5 98       	cbi	0x18, 5	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1c0:	82 e0       	ldi	r24, 0x02	; 2
+ 1c2:	8a 95       	dec	r24
+ 1c4:	f1 f7       	brne	.-4      	; 0x1c2 <SprawdzKlawisz+0xa8>
+ 1c6:	00 c0       	rjmp	.+0      	; 0x1c8 <SprawdzKlawisz+0xae>
+	_delay_us(1);
+	for(int i=0; i<3; i++)
+ 1c8:	85 2f       	mov	r24, r21
+ 1ca:	94 2f       	mov	r25, r20
+	{
+		if(bit_is_clear(PINB,i))
+ 1cc:	26 b3       	in	r18, 0x16	; 22
+ 1ce:	30 e0       	ldi	r19, 0x00	; 0
+ 1d0:	08 2e       	mov	r0, r24
+ 1d2:	02 c0       	rjmp	.+4      	; 0x1d8 <SprawdzKlawisz+0xbe>
+ 1d4:	35 95       	asr	r19
+ 1d6:	27 95       	ror	r18
+ 1d8:	0a 94       	dec	r0
+ 1da:	e2 f7       	brpl	.-8      	; 0x1d4 <SprawdzKlawisz+0xba>
+ 1dc:	20 fd       	sbrc	r18, 0
+ 1de:	15 c0       	rjmp	.+42     	; 0x20a <SprawdzKlawisz+0xf0>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1e0:	2f ef       	ldi	r18, 0xFF	; 255
+ 1e2:	36 e7       	ldi	r19, 0x76	; 118
+ 1e4:	61 e0       	ldi	r22, 0x01	; 1
+ 1e6:	21 50       	subi	r18, 0x01	; 1
+ 1e8:	30 40       	sbci	r19, 0x00	; 0
+ 1ea:	60 40       	sbci	r22, 0x00	; 0
+ 1ec:	e1 f7       	brne	.-8      	; 0x1e6 <SprawdzKlawisz+0xcc>
+ 1ee:	00 c0       	rjmp	.+0      	; 0x1f0 <SprawdzKlawisz+0xd6>
+ 1f0:	00 00       	nop
+		{
+			_delay_ms(60);
+			if(bit_is_clear(PINB,i))
+ 1f2:	26 b3       	in	r18, 0x16	; 22
+ 1f4:	30 e0       	ldi	r19, 0x00	; 0
+ 1f6:	08 2e       	mov	r0, r24
+ 1f8:	02 c0       	rjmp	.+4      	; 0x1fe <SprawdzKlawisz+0xe4>
+ 1fa:	35 95       	asr	r19
+ 1fc:	27 95       	ror	r18
+ 1fe:	0a 94       	dec	r0
+ 200:	e2 f7       	brpl	.-8      	; 0x1fa <SprawdzKlawisz+0xe0>
+ 202:	20 fd       	sbrc	r18, 0
+ 204:	02 c0       	rjmp	.+4      	; 0x20a <SprawdzKlawisz+0xf0>
+			{
+				przycisnieto=true;
+				return 8+i;
+ 206:	88 5f       	subi	r24, 0xF8	; 248
+ 208:	08 95       	ret
+		}
+	}
+	PORTB |=(1<<PB4);
+	PORTB &=~(1<<PB5);
+	_delay_us(1);
+	for(int i=0; i<3; i++)
+ 20a:	01 96       	adiw	r24, 0x01	; 1
+ 20c:	83 30       	cpi	r24, 0x03	; 3
+ 20e:	91 05       	cpc	r25, r1
+ 210:	e9 f6       	brne	.-70     	; 0x1cc <SprawdzKlawisz+0xb2>
+				przycisnieto=true;
+				return 8+i;
+			}
+		}
+	}
+	PORTB |=(1<<PB5);
+ 212:	c5 9a       	sbi	0x18, 5	; 24
+int8_t SprawdzKlawisz(void)
+{
+	bool przycisnieto=false;
+	while(przycisnieto==false)//pêtla czekaj¹ca na wciœniêcie przycisku
+	{
+	PORTB &=~(1<<PB3);//Zerujemy PB3 mo¿liwoœæ odczytania stanu górnego wiersza klawiaury
+ 214:	c3 98       	cbi	0x18, 3	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 216:	82 e0       	ldi	r24, 0x02	; 2
+ 218:	8a 95       	dec	r24
+ 21a:	f1 f7       	brne	.-4      	; 0x218 <SprawdzKlawisz+0xfe>
+ 21c:	00 c0       	rjmp	.+0      	; 0x21e <SprawdzKlawisz+0x104>
+	_delay_us(1);//Czekamy na ustalenie stanu nieustalonego
+	for(int i=0; i<3; i++)//odczytaj stany wszystkich trzech przycisków
+ 21e:	85 2f       	mov	r24, r21
+ 220:	94 2f       	mov	r25, r20
+ 222:	7e cf       	rjmp	.-260    	; 0x120 <SprawdzKlawisz+0x6>
+
+00000224 <CzytajKlawisze>:
+	PORTB |=(1<<PB5);
+	}
+	return 0;
+}
+bool CzytajKlawisze(int8_t tab[],int8_t lev)
+{
+ 224:	ef 92       	push	r14
+ 226:	ff 92       	push	r15
+ 228:	0f 93       	push	r16
+ 22a:	1f 93       	push	r17
+ 22c:	cf 93       	push	r28
+ 22e:	df 93       	push	r29
+	bool Zgadl=false;
+	for(int i=0; i<lev; i++)
+ 230:	e6 2e       	mov	r14, r22
+ 232:	ff 24       	eor	r15, r15
+ 234:	e7 fc       	sbrc	r14, 7
+ 236:	f0 94       	com	r15
+ 238:	1e 14       	cp	r1, r14
+ 23a:	1f 04       	cpc	r1, r15
+ 23c:	cc f4       	brge	.+50     	; 0x270 <CzytajKlawisze+0x4c>
+ 23e:	08 2f       	mov	r16, r24
+ 240:	19 2f       	mov	r17, r25
+ 242:	c0 e0       	ldi	r28, 0x00	; 0
+ 244:	d0 e0       	ldi	r29, 0x00	; 0
+	{
+		if(SprawdzKlawisz()!=tab[i])//SprawdŸ czy dany klawisz zgadza siê z wylosowanym w tabeli wyników
+ 246:	0e 94 8d 00 	call	0x11a	; 0x11a <SprawdzKlawisz>
+ 24a:	f8 01       	movw	r30, r16
+ 24c:	91 91       	ld	r25, Z+
+ 24e:	8f 01       	movw	r16, r30
+ 250:	89 13       	cpse	r24, r25
+ 252:	10 c0       	rjmp	.+32     	; 0x274 <CzytajKlawisze+0x50>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 254:	ff ef       	ldi	r31, 0xFF	; 255
+ 256:	21 ee       	ldi	r18, 0xE1	; 225
+ 258:	84 e0       	ldi	r24, 0x04	; 4
+ 25a:	f1 50       	subi	r31, 0x01	; 1
+ 25c:	20 40       	sbci	r18, 0x00	; 0
+ 25e:	80 40       	sbci	r24, 0x00	; 0
+ 260:	e1 f7       	brne	.-8      	; 0x25a <CzytajKlawisze+0x36>
+ 262:	00 c0       	rjmp	.+0      	; 0x264 <CzytajKlawisze+0x40>
+ 264:	00 00       	nop
+	return 0;
+}
+bool CzytajKlawisze(int8_t tab[],int8_t lev)
+{
+	bool Zgadl=false;
+	for(int i=0; i<lev; i++)
+ 266:	21 96       	adiw	r28, 0x01	; 1
+ 268:	ce 15       	cp	r28, r14
+ 26a:	df 05       	cpc	r29, r15
+ 26c:	64 f3       	brlt	.-40     	; 0x246 <CzytajKlawisze+0x22>
+ 26e:	04 c0       	rjmp	.+8      	; 0x278 <CzytajKlawisze+0x54>
+	}
+	return 0;
+}
+bool CzytajKlawisze(int8_t tab[],int8_t lev)
+{
+	bool Zgadl=false;
+ 270:	80 e0       	ldi	r24, 0x00	; 0
+ 272:	03 c0       	rjmp	.+6      	; 0x27a <CzytajKlawisze+0x56>
+	for(int i=0; i<lev; i++)
+	{
+		if(SprawdzKlawisz()!=tab[i])//SprawdŸ czy dany klawisz zgadza siê z wylosowanym w tabeli wyników
+		{//jeœli nie to przerwij pêtlê i zwróæ fa³sz
+			Zgadl=false;
+ 274:	80 e0       	ldi	r24, 0x00	; 0
+ 276:	01 c0       	rjmp	.+2      	; 0x27a <CzytajKlawisze+0x56>
+			break;
+		}
+		else//jeœli tak mo¿na kontynuowaæ pêtlê wstêpnie zostawiamy ,,prawda" 
+		{
+			Zgadl=true;
+ 278:	81 e0       	ldi	r24, 0x01	; 1
+		}
+		_delay_ms(200);// Daj u¿ytkownikowi czas na wciœniêcie kolejnego przycisku
+	}
+	return Zgadl;
+}
+ 27a:	df 91       	pop	r29
+ 27c:	cf 91       	pop	r28
+ 27e:	1f 91       	pop	r17
+ 280:	0f 91       	pop	r16
+ 282:	ff 90       	pop	r15
+ 284:	ef 90       	pop	r14
+ 286:	08 95       	ret
+
+00000288 <main>:
+int main(void)
+{
+ 288:	cf 93       	push	r28
+ 28a:	df 93       	push	r29
+ 28c:	cd b7       	in	r28, 0x3d	; 61
+ 28e:	de b7       	in	r29, 0x3e	; 62
+ 290:	e2 97       	sbiw	r28, 0x32	; 50
+ 292:	0f b6       	in	r0, 0x3f	; 63
+ 294:	f8 94       	cli
+ 296:	de bf       	out	0x3e, r29	; 62
+ 298:	0f be       	out	0x3f, r0	; 63
+ 29a:	cd bf       	out	0x3d, r28	; 61
+	Init();//Zainicjuj mikrokontroler
+ 29c:	0e 94 4e 00 	call	0x9c	; 0x9c <Init>
+	int8_t TabelaWynikow[50],poziom=3;//Tabela wyników losowañ i poziom trudnoœci 
+ 2a0:	0f 2e       	mov	r0, r31
+ 2a2:	f3 e0       	ldi	r31, 0x03	; 3
+ 2a4:	4f 2e       	mov	r4, r31
+ 2a6:	f0 2d       	mov	r31, r0
+    while(1)
+    {
+       for(int8_t i=0; i<poziom; i++)// Losowanie diód do zapalenia
+ 2a8:	b1 2c       	mov	r11, r1
+	   {
+		   TabelaWynikow[i]=rand()%9+2;// Losowanie do tabeli wynik funkcji dzielimy modulo 9 (wyniki z zakresu 0-8) i dodajemy 2 co przesuwa na zakres 2-10.
+ 2aa:	0f 2e       	mov	r0, r31
+ 2ac:	f9 e0       	ldi	r31, 0x09	; 9
+ 2ae:	cf 2e       	mov	r12, r31
+ 2b0:	d1 2c       	mov	r13, r1
+ 2b2:	f0 2d       	mov	r31, r0
+ 2b4:	ce 01       	movw	r24, r28
+ 2b6:	01 96       	adiw	r24, 0x01	; 1
+ 2b8:	7c 01       	movw	r14, r24
+ 2ba:	98 2e       	mov	r9, r24
+ 2bc:	af 2c       	mov	r10, r15
+		   }
+	   }
+	   else// je¿eli nasz ,,strza³" by³ nieudany zapal czerwon¹ i wróæ do poziomu 3.
+	   {
+		   Zapal(11);
+		   poziom=3;
+ 2be:	0f 2e       	mov	r0, r31
+ 2c0:	f3 e0       	ldi	r31, 0x03	; 3
+ 2c2:	8f 2e       	mov	r8, r31
+ 2c4:	f0 2d       	mov	r31, r0
+	   Zapal(0);
+	   if(CzytajKlawisze(TabelaWynikow,poziom)==true)//je¿eli nasze ,,strzaly" zgadza³y siê z tymi wylosowanymi zapal zielon¹
+	   {
+		   Zapal(12);
+		   poziom++;// zwiêksz trudnoœæ
+		   if(poziom>=50)// je¿eli poziom przekroczy 50 wyœwietl 3 razy zielon¹ (Gratuacje) i wróæ do poziomu 3.
+ 2c6:	0f 2e       	mov	r0, r31
+ 2c8:	f3 e0       	ldi	r31, 0x03	; 3
+ 2ca:	6f 2e       	mov	r6, r31
+ 2cc:	f0 2d       	mov	r31, r0
+ 2ce:	71 2c       	mov	r7, r1
+{
+	Init();//Zainicjuj mikrokontroler
+	int8_t TabelaWynikow[50],poziom=3;//Tabela wyników losowañ i poziom trudnoœci 
+    while(1)
+    {
+       for(int8_t i=0; i<poziom; i++)// Losowanie diód do zapalenia
+ 2d0:	14 14       	cp	r1, r4
+ 2d2:	3c f5       	brge	.+78     	; 0x322 <main+0x9a>
+ 2d4:	5b 2c       	mov	r5, r11
+	   {
+		   TabelaWynikow[i]=rand()%9+2;// Losowanie do tabeli wynik funkcji dzielimy modulo 9 (wyniki z zakresu 0-8) i dodajemy 2 co przesuwa na zakres 2-10.
+ 2d6:	05 2d       	mov	r16, r5
+ 2d8:	11 27       	eor	r17, r17
+ 2da:	07 fd       	sbrc	r16, 7
+ 2dc:	10 95       	com	r17
+ 2de:	0e 94 4e 02 	call	0x49c	; 0x49c <rand>
+ 2e2:	b6 01       	movw	r22, r12
+ 2e4:	0e 94 d2 01 	call	0x3a4	; 0x3a4 <__divmodhi4>
+ 2e8:	8e 5f       	subi	r24, 0xFE	; 254
+ 2ea:	f7 01       	movw	r30, r14
+ 2ec:	e0 0f       	add	r30, r16
+ 2ee:	f1 1f       	adc	r31, r17
+ 2f0:	80 83       	st	Z, r24
+		   if(i!=0)//Ten blok odpowiedzialny za to ¿eby 2 s¹siednie wyniki nie by³y takie same gdy¿ trudne jest to do zauwa¿enia
+ 2f2:	55 20       	and	r5, r5
+ 2f4:	41 f0       	breq	.+16     	; 0x306 <main+0x7e>
+		   {//objawia siê to pojedyñczym przedlu¿onym œwieceniem diody zamiast dwóch oddzielnych. Sprawdzamy czy i!=0 bo nie ma
+		   if(TabelaWynikow[i]==TabelaWynikow[i-1])//elementu tabeli [-1]. Sprawdzamy czy s¹siedzi nie s¹ sobie równe przerywamy 
+ 2f6:	fe 01       	movw	r30, r28
+ 2f8:	e0 0f       	add	r30, r16
+ 2fa:	f1 1f       	adc	r31, r17
+ 2fc:	90 81       	ld	r25, Z
+ 2fe:	89 13       	cpse	r24, r25
+ 300:	02 c0       	rjmp	.+4      	; 0x306 <main+0x7e>
+		   {//aktualny krok pêtli poleceniem continue odejmuj¹c 1 od licznika pêtli ¿eby nie straciæ po¿¹danej iloœci obrotów pêtli.
+			   --i;
+ 302:	5a 94       	dec	r5
+			   continue;
+ 304:	0b c0       	rjmp	.+22     	; 0x31c <main+0x94>
+		   }
+		   }//koniec teo bloku
+		   Zapal(TabelaWynikow[i]);
+ 306:	0e 94 56 00 	call	0xac	; 0xac <Zapal>
+ 30a:	9f ef       	ldi	r25, 0xFF	; 255
+ 30c:	24 e3       	ldi	r18, 0x34	; 52
+ 30e:	8c e0       	ldi	r24, 0x0C	; 12
+ 310:	91 50       	subi	r25, 0x01	; 1
+ 312:	20 40       	sbci	r18, 0x00	; 0
+ 314:	80 40       	sbci	r24, 0x00	; 0
+ 316:	e1 f7       	brne	.-8      	; 0x310 <main+0x88>
+ 318:	00 c0       	rjmp	.+0      	; 0x31a <main+0x92>
+ 31a:	00 00       	nop
+{
+	Init();//Zainicjuj mikrokontroler
+	int8_t TabelaWynikow[50],poziom=3;//Tabela wyników losowañ i poziom trudnoœci 
+    while(1)
+    {
+       for(int8_t i=0; i<poziom; i++)// Losowanie diód do zapalenia
+ 31c:	53 94       	inc	r5
+ 31e:	54 14       	cp	r5, r4
+ 320:	d4 f2       	brlt	.-76     	; 0x2d6 <main+0x4e>
+		   }
+		   }//koniec teo bloku
+		   Zapal(TabelaWynikow[i]);
+		   _delay_ms(500);
+	   }
+	   Zapal(0);
+ 322:	8b 2d       	mov	r24, r11
+ 324:	0e 94 56 00 	call	0xac	; 0xac <Zapal>
+	   if(CzytajKlawisze(TabelaWynikow,poziom)==true)//je¿eli nasze ,,strzaly" zgadza³y siê z tymi wylosowanymi zapal zielon¹
+ 328:	64 2d       	mov	r22, r4
+ 32a:	89 2d       	mov	r24, r9
+ 32c:	9a 2d       	mov	r25, r10
+ 32e:	0e 94 12 01 	call	0x224	; 0x224 <CzytajKlawisze>
+ 332:	88 23       	and	r24, r24
+ 334:	39 f1       	breq	.+78     	; 0x384 <main+0xfc>
+	   {
+		   Zapal(12);
+ 336:	8c e0       	ldi	r24, 0x0C	; 12
+ 338:	0e 94 56 00 	call	0xac	; 0xac <Zapal>
+		   poziom++;// zwiêksz trudnoœæ
+ 33c:	43 94       	inc	r4
+		   if(poziom>=50)// je¿eli poziom przekroczy 50 wyœwietl 3 razy zielon¹ (Gratuacje) i wróæ do poziomu 3.
+ 33e:	91 e3       	ldi	r25, 0x31	; 49
+ 340:	94 15       	cp	r25, r4
+ 342:	34 f5       	brge	.+76     	; 0x390 <main+0x108>
+ 344:	06 2d       	mov	r16, r6
+ 346:	17 2d       	mov	r17, r7
+		   {
+			   for(int i=0; i<3; i++)
+			   {
+				   Zapal(12);
+ 348:	8c e0       	ldi	r24, 0x0C	; 12
+ 34a:	0e 94 56 00 	call	0xac	; 0xac <Zapal>
+ 34e:	2f e7       	ldi	r18, 0x7F	; 127
+ 350:	8b e8       	ldi	r24, 0x8B	; 139
+ 352:	98 e0       	ldi	r25, 0x08	; 8
+ 354:	21 50       	subi	r18, 0x01	; 1
+ 356:	80 40       	sbci	r24, 0x00	; 0
+ 358:	90 40       	sbci	r25, 0x00	; 0
+ 35a:	e1 f7       	brne	.-8      	; 0x354 <main+0xcc>
+ 35c:	00 c0       	rjmp	.+0      	; 0x35e <main+0xd6>
+ 35e:	00 00       	nop
+				   _delay_ms(350);
+				   Zapal(0);
+ 360:	8b 2d       	mov	r24, r11
+ 362:	0e 94 56 00 	call	0xac	; 0xac <Zapal>
+ 366:	2f e7       	ldi	r18, 0x7F	; 127
+ 368:	8b e8       	ldi	r24, 0x8B	; 139
+ 36a:	98 e0       	ldi	r25, 0x08	; 8
+ 36c:	21 50       	subi	r18, 0x01	; 1
+ 36e:	80 40       	sbci	r24, 0x00	; 0
+ 370:	90 40       	sbci	r25, 0x00	; 0
+ 372:	e1 f7       	brne	.-8      	; 0x36c <main+0xe4>
+ 374:	00 c0       	rjmp	.+0      	; 0x376 <main+0xee>
+ 376:	00 00       	nop
+ 378:	01 50       	subi	r16, 0x01	; 1
+ 37a:	11 09       	sbc	r17, r1
+	   {
+		   Zapal(12);
+		   poziom++;// zwiêksz trudnoœæ
+		   if(poziom>=50)// je¿eli poziom przekroczy 50 wyœwietl 3 razy zielon¹ (Gratuacje) i wróæ do poziomu 3.
+		   {
+			   for(int i=0; i<3; i++)
+ 37c:	01 15       	cp	r16, r1
+ 37e:	11 05       	cpc	r17, r1
+ 380:	19 f7       	brne	.-58     	; 0x348 <main+0xc0>
+ 382:	05 c0       	rjmp	.+10     	; 0x38e <main+0x106>
+			   poziom=3;
+		   }
+	   }
+	   else// je¿eli nasz ,,strza³" by³ nieudany zapal czerwon¹ i wróæ do poziomu 3.
+	   {
+		   Zapal(11);
+ 384:	8b e0       	ldi	r24, 0x0B	; 11
+ 386:	0e 94 56 00 	call	0xac	; 0xac <Zapal>
+		   poziom=3;
+ 38a:	48 2c       	mov	r4, r8
+ 38c:	01 c0       	rjmp	.+2      	; 0x390 <main+0x108>
+				   Zapal(12);
+				   _delay_ms(350);
+				   Zapal(0);
+				   _delay_ms(350);
+			   }
+			   poziom=3;
+ 38e:	48 2c       	mov	r4, r8
+ 390:	2f ef       	ldi	r18, 0xFF	; 255
+ 392:	89 e6       	ldi	r24, 0x69	; 105
+ 394:	98 e1       	ldi	r25, 0x18	; 24
+ 396:	21 50       	subi	r18, 0x01	; 1
+ 398:	80 40       	sbci	r24, 0x00	; 0
+ 39a:	90 40       	sbci	r25, 0x00	; 0
+ 39c:	e1 f7       	brne	.-8      	; 0x396 <main+0x10e>
+ 39e:	00 c0       	rjmp	.+0      	; 0x3a0 <main+0x118>
+ 3a0:	00 00       	nop
+ 3a2:	96 cf       	rjmp	.-212    	; 0x2d0 <main+0x48>
+
+000003a4 <__divmodhi4>:
+ 3a4:	97 fb       	bst	r25, 7
+ 3a6:	07 2e       	mov	r0, r23
+ 3a8:	16 f4       	brtc	.+4      	; 0x3ae <__divmodhi4+0xa>
+ 3aa:	00 94       	com	r0
+ 3ac:	07 d0       	rcall	.+14     	; 0x3bc <__divmodhi4_neg1>
+ 3ae:	77 fd       	sbrc	r23, 7
+ 3b0:	09 d0       	rcall	.+18     	; 0x3c4 <__divmodhi4_neg2>
+ 3b2:	0e 94 ec 01 	call	0x3d8	; 0x3d8 <__udivmodhi4>
+ 3b6:	07 fc       	sbrc	r0, 7
+ 3b8:	05 d0       	rcall	.+10     	; 0x3c4 <__divmodhi4_neg2>
+ 3ba:	3e f4       	brtc	.+14     	; 0x3ca <__divmodhi4_exit>
+
+000003bc <__divmodhi4_neg1>:
+ 3bc:	90 95       	com	r25
+ 3be:	81 95       	neg	r24
+ 3c0:	9f 4f       	sbci	r25, 0xFF	; 255
+ 3c2:	08 95       	ret
+
+000003c4 <__divmodhi4_neg2>:
+ 3c4:	70 95       	com	r23
+ 3c6:	61 95       	neg	r22
+ 3c8:	7f 4f       	sbci	r23, 0xFF	; 255
+
+000003ca <__divmodhi4_exit>:
+ 3ca:	08 95       	ret
+
+000003cc <__tablejump2__>:
+ 3cc:	ee 0f       	add	r30, r30
+ 3ce:	ff 1f       	adc	r31, r31
+
+000003d0 <__tablejump__>:
+ 3d0:	05 90       	lpm	r0, Z+
+ 3d2:	f4 91       	lpm	r31, Z
+ 3d4:	e0 2d       	mov	r30, r0
+ 3d6:	09 94       	ijmp
+
+000003d8 <__udivmodhi4>:
+ 3d8:	aa 1b       	sub	r26, r26
+ 3da:	bb 1b       	sub	r27, r27
+ 3dc:	51 e1       	ldi	r21, 0x11	; 17
+ 3de:	07 c0       	rjmp	.+14     	; 0x3ee <__udivmodhi4_ep>
+
+000003e0 <__udivmodhi4_loop>:
+ 3e0:	aa 1f       	adc	r26, r26
+ 3e2:	bb 1f       	adc	r27, r27
+ 3e4:	a6 17       	cp	r26, r22
+ 3e6:	b7 07       	cpc	r27, r23
+ 3e8:	10 f0       	brcs	.+4      	; 0x3ee <__udivmodhi4_ep>
+ 3ea:	a6 1b       	sub	r26, r22
+ 3ec:	b7 0b       	sbc	r27, r23
+
+000003ee <__udivmodhi4_ep>:
+ 3ee:	88 1f       	adc	r24, r24
+ 3f0:	99 1f       	adc	r25, r25
+ 3f2:	5a 95       	dec	r21
+ 3f4:	a9 f7       	brne	.-22     	; 0x3e0 <__udivmodhi4_loop>
+ 3f6:	80 95       	com	r24
+ 3f8:	90 95       	com	r25
+ 3fa:	bc 01       	movw	r22, r24
+ 3fc:	cd 01       	movw	r24, r26
+ 3fe:	08 95       	ret
+
+00000400 <do_rand>:
+ 400:	8f 92       	push	r8
+ 402:	9f 92       	push	r9
+ 404:	af 92       	push	r10
+ 406:	bf 92       	push	r11
+ 408:	cf 92       	push	r12
+ 40a:	df 92       	push	r13
+ 40c:	ef 92       	push	r14
+ 40e:	ff 92       	push	r15
+ 410:	cf 93       	push	r28
+ 412:	df 93       	push	r29
+ 414:	ec 01       	movw	r28, r24
+ 416:	68 81       	ld	r22, Y
+ 418:	79 81       	ldd	r23, Y+1	; 0x01
+ 41a:	8a 81       	ldd	r24, Y+2	; 0x02
+ 41c:	9b 81       	ldd	r25, Y+3	; 0x03
+ 41e:	61 15       	cp	r22, r1
+ 420:	71 05       	cpc	r23, r1
+ 422:	81 05       	cpc	r24, r1
+ 424:	91 05       	cpc	r25, r1
+ 426:	21 f4       	brne	.+8      	; 0x430 <do_rand+0x30>
+ 428:	64 e2       	ldi	r22, 0x24	; 36
+ 42a:	79 ed       	ldi	r23, 0xD9	; 217
+ 42c:	8b e5       	ldi	r24, 0x5B	; 91
+ 42e:	97 e0       	ldi	r25, 0x07	; 7
+ 430:	2d e1       	ldi	r18, 0x1D	; 29
+ 432:	33 ef       	ldi	r19, 0xF3	; 243
+ 434:	41 e0       	ldi	r20, 0x01	; 1
+ 436:	50 e0       	ldi	r21, 0x00	; 0
+ 438:	0e 94 5e 02 	call	0x4bc	; 0x4bc <__divmodsi4>
+ 43c:	49 01       	movw	r8, r18
+ 43e:	5a 01       	movw	r10, r20
+ 440:	9b 01       	movw	r18, r22
+ 442:	ac 01       	movw	r20, r24
+ 444:	a7 ea       	ldi	r26, 0xA7	; 167
+ 446:	b1 e4       	ldi	r27, 0x41	; 65
+ 448:	0e 94 7d 02 	call	0x4fa	; 0x4fa <__muluhisi3>
+ 44c:	6b 01       	movw	r12, r22
+ 44e:	7c 01       	movw	r14, r24
+ 450:	ac ee       	ldi	r26, 0xEC	; 236
+ 452:	b4 ef       	ldi	r27, 0xF4	; 244
+ 454:	a5 01       	movw	r20, r10
+ 456:	94 01       	movw	r18, r8
+ 458:	0e 94 8b 02 	call	0x516	; 0x516 <__mulohisi3>
+ 45c:	c6 0e       	add	r12, r22
+ 45e:	d7 1e       	adc	r13, r23
+ 460:	e8 1e       	adc	r14, r24
+ 462:	f9 1e       	adc	r15, r25
+ 464:	f7 fe       	sbrs	r15, 7
+ 466:	06 c0       	rjmp	.+12     	; 0x474 <do_rand+0x74>
+ 468:	81 e0       	ldi	r24, 0x01	; 1
+ 46a:	c8 1a       	sub	r12, r24
+ 46c:	d1 08       	sbc	r13, r1
+ 46e:	e1 08       	sbc	r14, r1
+ 470:	80 e8       	ldi	r24, 0x80	; 128
+ 472:	f8 0a       	sbc	r15, r24
+ 474:	c8 82       	st	Y, r12
+ 476:	d9 82       	std	Y+1, r13	; 0x01
+ 478:	ea 82       	std	Y+2, r14	; 0x02
+ 47a:	fb 82       	std	Y+3, r15	; 0x03
+ 47c:	c6 01       	movw	r24, r12
+ 47e:	9f 77       	andi	r25, 0x7F	; 127
+ 480:	df 91       	pop	r29
+ 482:	cf 91       	pop	r28
+ 484:	ff 90       	pop	r15
+ 486:	ef 90       	pop	r14
+ 488:	df 90       	pop	r13
+ 48a:	cf 90       	pop	r12
+ 48c:	bf 90       	pop	r11
+ 48e:	af 90       	pop	r10
+ 490:	9f 90       	pop	r9
+ 492:	8f 90       	pop	r8
+ 494:	08 95       	ret
+
+00000496 <rand_r>:
+ 496:	0e 94 00 02 	call	0x400	; 0x400 <do_rand>
+ 49a:	08 95       	ret
+
+0000049c <rand>:
+ 49c:	80 e6       	ldi	r24, 0x60	; 96
+ 49e:	90 e0       	ldi	r25, 0x00	; 0
+ 4a0:	0e 94 00 02 	call	0x400	; 0x400 <do_rand>
+ 4a4:	08 95       	ret
+
+000004a6 <srand>:
+ 4a6:	a0 e0       	ldi	r26, 0x00	; 0
+ 4a8:	b0 e0       	ldi	r27, 0x00	; 0
+ 4aa:	80 93 60 00 	sts	0x0060, r24
+ 4ae:	90 93 61 00 	sts	0x0061, r25
+ 4b2:	a0 93 62 00 	sts	0x0062, r26
+ 4b6:	b0 93 63 00 	sts	0x0063, r27
+ 4ba:	08 95       	ret
+
+000004bc <__divmodsi4>:
+ 4bc:	05 2e       	mov	r0, r21
+ 4be:	97 fb       	bst	r25, 7
+ 4c0:	1e f4       	brtc	.+6      	; 0x4c8 <__divmodsi4+0xc>
+ 4c2:	00 94       	com	r0
+ 4c4:	0e 94 75 02 	call	0x4ea	; 0x4ea <__negsi2>
+ 4c8:	57 fd       	sbrc	r21, 7
+ 4ca:	07 d0       	rcall	.+14     	; 0x4da <__divmodsi4_neg2>
+ 4cc:	0e 94 90 02 	call	0x520	; 0x520 <__udivmodsi4>
+ 4d0:	07 fc       	sbrc	r0, 7
+ 4d2:	03 d0       	rcall	.+6      	; 0x4da <__divmodsi4_neg2>
+ 4d4:	4e f4       	brtc	.+18     	; 0x4e8 <__divmodsi4_exit>
+ 4d6:	0c 94 75 02 	jmp	0x4ea	; 0x4ea <__negsi2>
+
+000004da <__divmodsi4_neg2>:
+ 4da:	50 95       	com	r21
+ 4dc:	40 95       	com	r20
+ 4de:	30 95       	com	r19
+ 4e0:	21 95       	neg	r18
+ 4e2:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4e4:	4f 4f       	sbci	r20, 0xFF	; 255
+ 4e6:	5f 4f       	sbci	r21, 0xFF	; 255
+
+000004e8 <__divmodsi4_exit>:
+ 4e8:	08 95       	ret
+
+000004ea <__negsi2>:
+ 4ea:	90 95       	com	r25
+ 4ec:	80 95       	com	r24
+ 4ee:	70 95       	com	r23
+ 4f0:	61 95       	neg	r22
+ 4f2:	7f 4f       	sbci	r23, 0xFF	; 255
+ 4f4:	8f 4f       	sbci	r24, 0xFF	; 255
+ 4f6:	9f 4f       	sbci	r25, 0xFF	; 255
+ 4f8:	08 95       	ret
+
+000004fa <__muluhisi3>:
+ 4fa:	0e 94 b2 02 	call	0x564	; 0x564 <__umulhisi3>
+ 4fe:	a5 9f       	mul	r26, r21
+ 500:	90 0d       	add	r25, r0
+ 502:	b4 9f       	mul	r27, r20
+ 504:	90 0d       	add	r25, r0
+ 506:	a4 9f       	mul	r26, r20
+ 508:	80 0d       	add	r24, r0
+ 50a:	91 1d       	adc	r25, r1
+ 50c:	11 24       	eor	r1, r1
+ 50e:	08 95       	ret
+
+00000510 <__mulshisi3>:
+ 510:	b7 ff       	sbrs	r27, 7
+ 512:	0c 94 7d 02 	jmp	0x4fa	; 0x4fa <__muluhisi3>
+
+00000516 <__mulohisi3>:
+ 516:	0e 94 7d 02 	call	0x4fa	; 0x4fa <__muluhisi3>
+ 51a:	82 1b       	sub	r24, r18
+ 51c:	93 0b       	sbc	r25, r19
+ 51e:	08 95       	ret
+
+00000520 <__udivmodsi4>:
+ 520:	a1 e2       	ldi	r26, 0x21	; 33
+ 522:	1a 2e       	mov	r1, r26
+ 524:	aa 1b       	sub	r26, r26
+ 526:	bb 1b       	sub	r27, r27
+ 528:	fd 01       	movw	r30, r26
+ 52a:	0d c0       	rjmp	.+26     	; 0x546 <__udivmodsi4_ep>
+
+0000052c <__udivmodsi4_loop>:
+ 52c:	aa 1f       	adc	r26, r26
+ 52e:	bb 1f       	adc	r27, r27
+ 530:	ee 1f       	adc	r30, r30
+ 532:	ff 1f       	adc	r31, r31
+ 534:	a2 17       	cp	r26, r18
+ 536:	b3 07       	cpc	r27, r19
+ 538:	e4 07       	cpc	r30, r20
+ 53a:	f5 07       	cpc	r31, r21
+ 53c:	20 f0       	brcs	.+8      	; 0x546 <__udivmodsi4_ep>
+ 53e:	a2 1b       	sub	r26, r18
+ 540:	b3 0b       	sbc	r27, r19
+ 542:	e4 0b       	sbc	r30, r20
+ 544:	f5 0b       	sbc	r31, r21
+
+00000546 <__udivmodsi4_ep>:
+ 546:	66 1f       	adc	r22, r22
+ 548:	77 1f       	adc	r23, r23
+ 54a:	88 1f       	adc	r24, r24
+ 54c:	99 1f       	adc	r25, r25
+ 54e:	1a 94       	dec	r1
+ 550:	69 f7       	brne	.-38     	; 0x52c <__udivmodsi4_loop>
+ 552:	60 95       	com	r22
+ 554:	70 95       	com	r23
+ 556:	80 95       	com	r24
+ 558:	90 95       	com	r25
+ 55a:	9b 01       	movw	r18, r22
+ 55c:	ac 01       	movw	r20, r24
+ 55e:	bd 01       	movw	r22, r26
+ 560:	cf 01       	movw	r24, r30
+ 562:	08 95       	ret
+
+00000564 <__umulhisi3>:
+ 564:	a2 9f       	mul	r26, r18
+ 566:	b0 01       	movw	r22, r0
+ 568:	b3 9f       	mul	r27, r19
+ 56a:	c0 01       	movw	r24, r0
+ 56c:	a3 9f       	mul	r26, r19
+ 56e:	70 0d       	add	r23, r0
+ 570:	81 1d       	adc	r24, r1
+ 572:	11 24       	eor	r1, r1
+ 574:	91 1d       	adc	r25, r1
+ 576:	b2 9f       	mul	r27, r18
+ 578:	70 0d       	add	r23, r0
+ 57a:	81 1d       	adc	r24, r1
+ 57c:	11 24       	eor	r1, r1
+ 57e:	91 1d       	adc	r25, r1
+ 580:	08 95       	ret
+
+00000582 <_exit>:
+ 582:	f8 94       	cli
+
+00000584 <__stop_program>:
+ 584:	ff cf       	rjmp	.-2      	; 0x584 <__stop_program>
